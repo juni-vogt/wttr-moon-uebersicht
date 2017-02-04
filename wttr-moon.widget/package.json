@@ -1,0 +1,23 @@
+{
+  "name": "wttr-moon-uebersicht",
+  "version": "0.1.0",
+  "description": "wttr.in/Moon Übersicht widget",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Übersicht",
+    "wttr",
+    "weather",
+    "moon",
+    "wttr.in",
+    "widget"
+  ],
+  "author": "Matthias Vogt",
+  "license": "ISC",
+  "dependencies": {
+    "ansi-to-html": "^0.5.0",
+    "node-fetch": "^1.6.3"
+  }
+}
