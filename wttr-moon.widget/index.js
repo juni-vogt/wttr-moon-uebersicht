@@ -4,7 +4,7 @@
 
 _: (() => this.options = {
 
-	lang: 'de'
+	lang: '' // de
 
 })(),
 
