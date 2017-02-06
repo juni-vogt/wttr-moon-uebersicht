@@ -33,6 +33,9 @@ style: `
 	font: 9px "DejaVu Sans Mono", Menlo, "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
 	z-index: 999;
 
+	pre * // workaround for #1
+		background: none !important
+
 	a>*
 		max-width: 200px
 		max-height: 200px
