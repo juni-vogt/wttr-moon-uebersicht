@@ -41,7 +41,5 @@ command: function(cb) {
 
 render: out => `
 	<link rel="stylesheet" href="wttr2.widget/terminal-colors.css" />
-	<pre>
-	${out.err || out.data.split('\n').slice(0, 24).join('\n')}
-	</pre>
+	<pre>${out.err || out.data.split('\n').slice(0, 24).join('\n')}</pre>
 `
