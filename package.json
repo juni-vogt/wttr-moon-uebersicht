@@ -1,0 +1,21 @@
+{
+  "name": "wttr-moon-uebersicht",
+  "version": "0.2.1",
+  "description": "Shows wttr.in Moon info",
+  "main": "wttr-moon.widget/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Übersicht",
+    "wttr",
+    "moon",
+    "wttr.in",
+    "widget"
+  ],
+  "author": "Matthias Vogt",
+  "homepage": "https://github.com/matthias-vogt/wttr-moon-uebersicht",
+  "bugs": "https://github.com/matthias-vogt/wttr-moon-uebersicht",
+  "repository": "https://github.com/matthias-vogt/wttr-moon-uebersicht",
+  "license": "ISC"
+}

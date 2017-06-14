@@ -1,44 +1,47 @@
 //
-// Shows imgur's daily top image for a search query
+// Shows the current wttr.in forecast on your desktop
 //
 
-_: (() => this.options = {
+options: {
+	lang: 'en', // country code
+},
 
-	lang: '' // de
-
-})(),
-
-command: `
-    cd ./wttr-moon.widget &&
-	# echo 'loading…' &&
-	{ # hide output
-
-	  OPTIONS=${escape(JSON.stringify(this.options))} \
-	  /usr/local/bin/node ./src/init-app;
-
-	} &> npm-debug.log &&
-	cat output.html
-`,
-
-refreshFrequency: 1000 * 60 * 20,
-
-render: output => output,
+refreshFrequency: 1000 * 60 * 30, // 30min
 
 style: `
-	-webkit-font-smoothing: antialiased // nicer font rendering
-	right: 60px;
-	top: 20px;
-	// bottom: 100px;
+	// position on screen
+	left: 939px;
+	top: 209px;
+
+	position: fixed;
+	-webkit-font-smoothing: antialiased; // nicer font rendering
 	color: #efefef;
-	font: 9px "DejaVu Sans Mono", Menlo, "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
-	z-index: 999;
 
-	pre * // workaround for #1
-		background: none !important
+	pre
+		font: 7px "DejaVu Sans Mono", Menlo, "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
 
-	a>*
-		max-width: 200px
-		max-height: 200px
+`,
 
+command: function(cb) {
+	// this part is unnecessarily complicated because I wanted to have an
+	// options property
 
+	const cmd = `
+		cd wttr2.widget &&
+		curl -s wttr.in/moon?lang=${this.options.lang} |
+		./terminal-to-html
+	`;
+	// see https://github.com/chubin/wttr.in for API
+	// uses https://github.com/buildkite/terminal
+
+	this.run(cmd, (err, data) => {
+		cb(this.render({ err, data }))
+	})
+},
+
+render: out => `
+	<link rel="stylesheet" href="wttr2.widget/terminal-colors.css" />
+	<pre>
+	${out.err || out.data.split('\n').slice(0, 24).join('\n')}
+	</pre>
 `
