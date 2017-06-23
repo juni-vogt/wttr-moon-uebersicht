@@ -1,6 +1,6 @@
 {
   "name": "wttr-moon-uebersicht",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Shows wttr.in Moon info",
   "main": "wttr-moon.widget/index.js",
   "scripts": {
