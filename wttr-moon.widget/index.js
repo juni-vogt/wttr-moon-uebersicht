@@ -27,7 +27,7 @@ command: function(cb) {
 	// options property
 
 	const cmd = `
-		cd wttr.widget &&
+		cd wttr-moon.widget &&
 		curl -s wttr.in/moon?lang=${this.options.lang} |
 		./terminal-to-html
 	`;
@@ -40,6 +40,6 @@ command: function(cb) {
 },
 
 render: out => `
-	<link rel="stylesheet" href="wttr.widget/terminal-colors.css" />
+	<link rel="stylesheet" href="wttr-moon.widget/terminal-colors.css" />
 	<pre>${out.err || out.data.split('\n').slice(0, 24).join('\n')}</pre>
 `
