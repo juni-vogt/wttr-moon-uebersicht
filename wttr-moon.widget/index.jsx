@@ -2,6 +2,10 @@
 // Shows the current wttr.in forecast on your desktop
 //
 
+const options = {
+	lang: 'en' // country code
+}
+
 export const refreshFrequency = 1000 * 60 * 30; // 30min
 
 export const className = `
@@ -20,7 +24,8 @@ export const className = `
 
 export const command = `
 	cd wttr-moon.widget &&
-	curl -s wttr.in/moon?lang=en | ./terminal-to-html
+	curl -s wttr.in/moon?lang=${ options.lang } |
+	./terminal-to-html
 `;
 
 // see https://github.com/chubin/wttr.in for API
@@ -28,6 +33,8 @@ export const command = `
 
 export const render = props => props.error ? props.error :
 	<div>
-		<link rel="stylesheet" href="wttr-moon.widget/terminal-colors.css" />
-		<pre dangerouslySetInnerHTML={{ __html: props.output }} />
+			<link rel="stylesheet" href="wttr-moon.widget/terminal-colors.css" />
+			<pre dangerouslySetInnerHTML={{
+				__html: props.output.split('\n').slice(0, 24).join('\n')
+			}} />
 	</div>
