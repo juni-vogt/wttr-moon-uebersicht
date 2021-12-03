@@ -25,7 +25,7 @@ export const className = `
 export const command = `
 	cd wttr-moon.widget &&
 	curl -s wttr.in/moon?lang=${ options.lang } |
-	./terminal-to-html-3.6.1-darwin-arm64
+	./terminal-to-html.sh
 `;
 
 // see https://github.com/chubin/wttr.in for API
