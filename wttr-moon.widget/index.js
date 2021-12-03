@@ -29,7 +29,7 @@ command: function(cb) {
 	const cmd = `
 		cd wttr-moon.widget &&
 		curl -s wttr.in/moon?lang=${this.options.lang} |
-		./terminal-to-html
+		./terminal-to-html-3.6.1-darwin-arm64
 	`;
 	// see https://github.com/chubin/wttr.in for API
 	// uses https://github.com/buildkite/terminal
